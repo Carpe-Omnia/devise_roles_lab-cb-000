@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :users
   resources :posts
   get '/pages/about' => 'visitors#about'
+  get '/home' => 'visitors#home'
+
 end
