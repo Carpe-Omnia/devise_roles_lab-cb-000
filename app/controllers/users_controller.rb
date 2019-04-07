@@ -18,6 +18,9 @@ class UsersController < ApplicationController
   def update
   end
   def destroy
+    if !current_user
+      redirect_to '/home'
+    end
     @user = User.find_by(id: params[:id])
     if @user == current_user || current_user.admin?
       @user.destroy
