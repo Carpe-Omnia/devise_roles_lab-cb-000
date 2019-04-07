@@ -18,12 +18,12 @@ class UsersController < ApplicationController
   def update
   end
   def destroy
-      @user = User.find_by(id: params[:id])
-      if @user == current_user || current_user.admin?
-        @user.destroy
-      else
-        redirect_to :back
-      end
+    @user = User.find_by(id: params[:id])
+    if @user == current_user || current_user.admin?
+      @user.destroy
+    else
+      redirect_to :back
+    end
   end
 
 end
