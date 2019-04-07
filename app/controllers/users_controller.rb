@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     if @user == current_user || current_user.admin?
       @user.destroy
     else
-      redirect_to :back
+      redirect_to '/home'
     end
   end
 
