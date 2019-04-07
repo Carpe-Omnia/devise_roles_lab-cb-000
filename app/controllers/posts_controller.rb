@@ -8,13 +8,13 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find_by(id: params[:id])
     if !current_user.admin? && @post.user_id != session[:user_id]
-      redirect_to :back
+      redirect_to '/home'
     end
   end
   def update
     @post = Post.find_by(id: params[:id])
     if !current_user.admin? && @post.user_id != session[:user_id]
-      redirect_to :back
+      redirect_to '/home'
     end
   end
   def new
