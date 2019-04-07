@@ -9,7 +9,7 @@ describe PostsController do
         created_post = create(:post, content: 'bar')
 
         expect {
-          post :update, id: created_post.id, post: { content: 'foo' }
+          post :update, params: {id: created_post.id, post: { content: 'foo' }}
         }.not_to change(created_post, :content)
       end
     end
