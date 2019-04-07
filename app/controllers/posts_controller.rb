@@ -21,8 +21,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     if !current_user.admin? && @post.user_id != session[:user_id]
       redirect_to '/home'
-    else 
-      @post.update(post_params)  
+    else
+      @post.update(post_params)
     end
   end
   def new
