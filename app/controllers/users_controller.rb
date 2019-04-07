@@ -18,5 +18,7 @@ class UsersController < ApplicationController
   def update
   end
   def destroy
+      @user = User.find_by(id: params[:id]) 
+      if @user == current_user 
   end
 end
