@@ -19,11 +19,11 @@ class UsersController < ApplicationController
   end
   def destroy
       @user = User.find_by(id: params[:id])
-      if @user == current_user || current_user.admin? 
-        @user.destroy 
-      else 
-        redirect_to :back 
-      end     
+      if @user == current_user || current_user.admin?
+        @user.destroy
+      else
+        redirect_to :back
+      end
   end
-  
+
 end
