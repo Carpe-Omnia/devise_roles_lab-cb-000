@@ -5,10 +5,10 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find_by(id: params[:id])
-    if !@user 
+    if !@user
       flash[:alert] = "Access denied."
       redirect_to root_path
-    end   
+    end
     if !current_user.admin? && current_user != @user
       flash[:alert] = "Access denied."
       redirect_to root_path
