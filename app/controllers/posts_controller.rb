@@ -7,13 +7,13 @@ class PostsController < ApplicationController
   end
   def edit
     @post = Post.find_by(id: params[:id])
-    if !current_user.admin? && Post.user_id != session[:user_id]
+    if !current_user.admin? && @post.user_id != session[:user_id]
       redirect_to :back
     end
   end
   def update
     @post = Post.find_by(id: params[:id])
-    if !current_user.admin? && Post.user_id != session[:user_id]
+    if !current_user.admin? && @post.user_id != session[:user_id]
       redirect_to :back
     end
   end
