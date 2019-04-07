@@ -6,12 +6,18 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
   def edit
+    if !current_user
+      redirect_to '/home'
+    end
     @post = Post.find_by(id: params[:id])
     if !current_user.admin? && @post.user_id != session[:user_id]
       redirect_to '/home'
     end
   end
   def update
+    if !current_user
+      redirect_to '/home'
+    end
     @post = Post.find_by(id: params[:id])
     if !current_user.admin? && @post.user_id != session[:user_id]
       redirect_to '/home'
