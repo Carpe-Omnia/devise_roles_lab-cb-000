@@ -11,5 +11,6 @@ class User < ActiveRecord::Base
   def set_default_user_role
     self.role = :user
   end
-
+  def admin?
+    self.role == :admin
 end
