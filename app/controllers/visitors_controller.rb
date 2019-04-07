@@ -3,6 +3,6 @@ class VisitorsController < ApplicationController
   end
   def about
   end
-  def home 
-  end   
+  def home
+  end
 end
