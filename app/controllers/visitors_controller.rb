@@ -7,6 +7,7 @@ class VisitorsController < ApplicationController
   end
   def signout
     session.clear
+    flash[:alert] = "Access denied."
     redirect_to root_path
   end
 end
